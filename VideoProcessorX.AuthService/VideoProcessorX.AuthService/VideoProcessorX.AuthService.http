@@ -1,0 +1,6 @@
+@VideoProcessorX.AuthService_HostAddress = http://localhost:5002
+
+GET {{VideoProcessorX.AuthService_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
