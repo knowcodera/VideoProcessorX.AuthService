@@ -2,6 +2,6 @@
 {
     public interface IEventPublisher
     {
-        Task PublishAsync(string message);
+        Task PublishAsync(string queueName, object message);
     }
 }

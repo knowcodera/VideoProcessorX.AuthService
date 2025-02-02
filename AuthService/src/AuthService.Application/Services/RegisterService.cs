@@ -33,7 +33,13 @@ namespace AuthService.Application.Services
 
             await _userRepository.CreateAsync(user);
 
-            await _eventPublisher.PublishAsync($"UserRegistered: {user.Username}");
+            await _eventPublisher.PublishAsync("user.created", new
+            {
+                id = user.Id,
+                email = user.Email,
+                username = user.Username
+            });
+
 
             return Result.Success();
         }

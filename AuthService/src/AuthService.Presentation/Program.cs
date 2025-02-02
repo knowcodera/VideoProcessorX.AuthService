@@ -1,12 +1,19 @@
+using AuthService.Application.Services;
+using AuthService.Domain.Interfaces;
 using AuthService.Infraestructure.Data;
+using AuthService.Infraestructure.Messaging;
+using AuthService.Infraestructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using VideoProcessorX.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// Add services to the container.
+builder.Services.AddScoped<IUserRepository, UserRepository>();
+builder.Services.AddScoped<IEventPublisher, RabbitMqEventPublisher>();
+builder.Services.AddScoped<RegisterService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));

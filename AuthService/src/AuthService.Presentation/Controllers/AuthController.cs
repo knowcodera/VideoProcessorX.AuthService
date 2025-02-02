@@ -1,4 +1,6 @@
 ﻿using AuthService.Application.DTOs;
+using AuthService.Application.Services;
+using AuthService.Domain.Interfaces;
 using AuthService.Infraestructure.Data;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -16,33 +18,24 @@ namespace AuthService.Presentation.Controllers
     {
         private readonly AppDbContext _context;
         private readonly IConfiguration _configuration;
+        private readonly RegisterService _registerService;
 
-        public AuthController(AppDbContext context, IConfiguration configuration)
+        public AuthController(AppDbContext context, IConfiguration configuration, RegisterService registerService)
         {
             _context = context;
             _configuration = configuration;
+            _registerService = registerService;
         }
 
         // Endpoint para registrar usuário (opcional para MVP, você pode inserir direto no BD se quiser)
         [HttpPost("register")]
         public async Task<IActionResult> Register([FromBody] UserRegisterDto model)
         {
-            // Verifica se já existe
-            if (await _context.Users.AnyAsync(u => u.Username == model.Username))
-                return BadRequest("Username already exists");
-
-            // Cria o User
-            var user = new User
+            var result = await _registerService.RegisterAsync(model.Username, model.Email, model.Password);
+            if (!result.Succeeded)
             {
-                Username = model.Username,
-                Email = model.Email,
-                // Aqui, armazenamos a senha hasheada (por ex. Bcrypt, PBKDF2, etc.)
-                Password = BCrypt.Net.BCrypt.HashPassword(model.Password)
-            };
-
-            _context.Users.Add(user);
-            await _context.SaveChangesAsync();
-
+                return BadRequest(result.Error);
+            }
             return Ok("User registered successfully");
         }
 

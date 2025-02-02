@@ -17,8 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AuthService.Infraestructure\AuthService.Infraestructure.csproj" />
-    <ProjectReference Include="..\VideoProcessorX.AuthService\AuthService.Presentation.csproj" />
+    <ProjectReference Include="..\..\src\AuthService.Application\AuthService.Application.csproj" />
+    <ProjectReference Include="..\..\src\AuthService.Domain\AuthService.Domain.csproj" />
+    <ProjectReference Include="..\..\src\AuthService.Infraestructure\AuthService.Infraestructure.csproj" />
+    <ProjectReference Include="..\..\src\AuthService.Presentation\AuthService.Presentation.csproj" />
   </ItemGroup>
 
   <ItemGroup>

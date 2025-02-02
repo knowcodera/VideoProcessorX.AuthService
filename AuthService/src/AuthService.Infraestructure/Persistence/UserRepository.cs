@@ -16,12 +16,13 @@ namespace AuthService.Infraestructure.Persistence
 
         public async Task<User> GetByUsernameAsync(string username)
         {
-            return await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            return await _context.Users
+                .FirstOrDefaultAsync(u => u.Username == username);
         }
 
         public async Task CreateAsync(User user)
         {
-            _context.Users.Add(user);
+            await _context.Users.AddAsync(user);
             await _context.SaveChangesAsync();
         }
     }
