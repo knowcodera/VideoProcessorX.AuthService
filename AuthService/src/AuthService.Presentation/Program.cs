@@ -14,6 +14,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IEventPublisher, RabbitMqEventPublisher>();
 builder.Services.AddScoped<RegisterService>();
+builder.Services.AddScoped<IJwtService, JwtService>();
 
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
@@ -69,4 +70,9 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-app.Run();
+if (app.Environment.IsDevelopment())
+{
+    app.Run();
+}
+
+app.Run("http://*:8082");

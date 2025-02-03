@@ -12,19 +12,22 @@ EXPOSE 8081
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["VideoProcessorX.AuthService/VideoProcessorX.AuthService.csproj", "VideoProcessorX.AuthService/"]
-RUN dotnet restore "./VideoProcessorX.AuthService/VideoProcessorX.AuthService.csproj"
+COPY ["src/AuthService.Presentation/AuthService.Presentation.csproj", "src/AuthService.Presentation/"]
+COPY ["src/AuthService.Application/AuthService.Application.csproj", "src/AuthService.Application/"]
+COPY ["src/AuthService.Domain/AuthService.Domain.csproj", "src/AuthService.Domain/"]
+COPY ["src/AuthService.Infraestructure/AuthService.Infraestructure.csproj", "src/AuthService.Infraestructure/"]
+RUN dotnet restore "./src/AuthService.Presentation/AuthService.Presentation.csproj"
 COPY . .
-WORKDIR "/src/VideoProcessorX.AuthService"
-RUN dotnet build "./VideoProcessorX.AuthService.csproj" -c $BUILD_CONFIGURATION -o /app/build
+WORKDIR "/src/src/AuthService.Presentation"
+RUN dotnet build "./AuthService.Presentation.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # This stage is used to publish the service project to be copied to the final stage
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "./VideoProcessorX.AuthService.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "./AuthService.Presentation.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # This stage is used in production or when running from VS in regular mode (Default when not using the Debug configuration)
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "VideoProcessorX.AuthService.dll"]
+ENTRYPOINT ["dotnet", "AuthService.Presentation.dll"]
