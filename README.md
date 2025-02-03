@@ -107,11 +107,11 @@ docker-compose up -d
 
 ## 📌 Endpoints da API
 
-| Método | Rota              | Descrição                          | Autenticação |
-|--------|-------------------|----------------------------------|--------------|
-| POST   | `/api/auth/register` | Cria um novo usuário            | ❌ |
-| POST   | `/api/auth/login`    | Gera um token JWT               | ❌ |
-| GET    | `/api/users`         | Lista usuários (futuro)         | ✅ |
+| Método | Rota              | Descrição                         
+|--------|-------------------|----------------------------------
+| POST   | `/api/auth/register` | Cria um novo usuário            
+| POST   | `/api/auth/login`    | Gera um token JWT             
+| GET    | `/api/users`         | Lista usuários (futuro)         
 
 
 ## 📜 Licença
