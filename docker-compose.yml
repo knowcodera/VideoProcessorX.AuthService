@@ -1,41 +1,23 @@
 version: '3.9'
 
 services:
-  sqlserver:
-    image: mcr.microsoft.com/mssql/server:2022-latest
-    container_name: sqlserver
-    environment:
-      ACCEPT_EULA: "Y"
-      MSSQL_SA_PASSWORD: "PA55w0rd2024"
-    ports:
-      - "1433:1433"
-    networks:
-      - backend
-
   auth-service:
-    image: auth-service:dev
-    container_name: auth-service
     build:
       context: ./AuthService
       dockerfile: Dockerfile
+    container_name: auth-service
     environment:
-      - DBServer=sqlserver
-      - DBPort=1433
-      - DBUser=SA
-      - DBPassword=PA55w0rd2024
-      - Database=AuthServiceDB
-      - ASPNETCORE_ENVIRONMENT=Production
-      - Jwt__Key=SuperSecretKeyForJwt
-      - Jwt__Issuer=VideoProcessorX
-      - Jwt__Audience=VideoProcessorXClients
-    ports:
-      - "8082:8080"
-      - "8083:8081"
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AuthDB;User Id=sa;Password=StrongPassword123;
+      - RabbitMQ__HostName=rabbitmq
+      - RabbitMQ__Port=5672
+      - RabbitMQ__Username=guest
+      - RabbitMQ__Password=guest
+      - ASPNETCORE_URLS=http://*:6060 
     networks:
-      - backend  
-    depends_on:
-      - sqlserver
+      - backend
+    ports:
+      - "6061:6060" 
 
 networks:
   backend:
-    driver: bridge
+    external: true
