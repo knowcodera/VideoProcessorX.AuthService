@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile
     container_name: auth-service
     environment:
-      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AuthDB;User Id=sa;Password=StrongPassword123;
+      - ConnectionStrings__DefaultConnection=Server=sqlserver;Database=AuthDB;User Id=sa;Password=StrongPassword123;TrustServerCertificate=True
       - RabbitMQ__HostName=rabbitmq
       - RabbitMQ__Port=5672
       - RabbitMQ__Username=guest

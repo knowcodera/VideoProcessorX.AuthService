@@ -35,9 +35,9 @@ namespace AuthService.Application.Services
 
             await _eventPublisher.PublishAsync("user.created", new
             {
-                id = user.Id,
-                email = user.Email,
-                username = user.Username
+                Id = user.Id,
+                Email = user.Email,
+                Username = user.Username
             });
 
 
