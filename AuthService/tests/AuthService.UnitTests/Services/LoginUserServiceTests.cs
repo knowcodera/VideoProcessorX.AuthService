@@ -1,7 +1,7 @@
 ﻿using AuthService.Application.Services;
+using AuthService.Domain.Entities;
+using AuthService.Domain.Interfaces;
 using Moq;
-using VideoProcessorX.Domain.Entities;
-using VideoProcessorX.Domain.Interfaces;
 
 namespace AuthService.UnitTests.Services
 {

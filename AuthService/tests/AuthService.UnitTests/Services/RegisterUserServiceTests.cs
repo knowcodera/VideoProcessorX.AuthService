@@ -1,4 +1,4 @@
-﻿namespace VideoProcessorX.UnitTests.Services
+﻿namespace AuthService.UnitTests.Services
 {
     //public class RegisterUserServiceTests
     //{

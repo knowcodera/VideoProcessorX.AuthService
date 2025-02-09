@@ -1,7 +1,7 @@
-﻿using AuthService.Infraestructure.Data;
+﻿using AuthService.Domain.Entities;
+using AuthService.Infraestructure.Data;
 using AuthService.Infraestructure.Persistence;
 using Microsoft.EntityFrameworkCore;
-using VideoProcessorX.Domain.Entities;
 
 namespace AuthService.UnitTests.Persistence
 {

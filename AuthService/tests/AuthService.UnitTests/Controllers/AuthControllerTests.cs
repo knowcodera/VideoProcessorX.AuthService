@@ -1,15 +1,11 @@
-﻿using AuthService.Presentation.Controllers;
-using AuthService.Application.DTOs;
+﻿using AuthService.Application.DTOs;
 using AuthService.Application.Services;
+using AuthService.Domain.Entities;
 using AuthService.Domain.Interfaces;
+using AuthService.Presentation.Controllers;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Moq;
-using System.Collections.Generic;
-using System.Threading.Tasks;
-using VideoProcessorX.Domain.Entities;
-using Xunit;
-using VideoProcessorX.Domain.Interfaces;
 
 namespace AuthService.UnitTests.Controllers
 {

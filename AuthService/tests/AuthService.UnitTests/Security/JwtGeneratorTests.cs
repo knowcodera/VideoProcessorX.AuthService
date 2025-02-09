@@ -1,6 +1,6 @@
-﻿using AuthService.Infraestructure.Security;
+﻿using AuthService.Domain.Entities;
+using AuthService.Infraestructure.Security;
 using Microsoft.Extensions.Configuration;
-using VideoProcessorX.Domain.Entities;
 
 namespace AuthService.UnitTests.Security
 {

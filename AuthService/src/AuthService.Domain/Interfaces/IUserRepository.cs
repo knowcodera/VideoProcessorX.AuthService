@@ -1,6 +1,6 @@
-﻿using VideoProcessorX.Domain.Entities;
+﻿using AuthService.Domain.Entities;
 
-namespace VideoProcessorX.Domain.Interfaces
+namespace AuthService.Domain.Interfaces
 {
     public interface IUserRepository
     {

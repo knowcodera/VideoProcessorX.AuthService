@@ -1,5 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
-using VideoProcessorX.Domain.Entities;
+﻿using AuthService.Domain.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace AuthService.Infraestructure.Data
 {

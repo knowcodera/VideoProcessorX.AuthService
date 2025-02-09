@@ -1,7 +1,7 @@
-﻿using AuthService.Infraestructure.Data;
+﻿using AuthService.Domain.Entities;
+using AuthService.Domain.Interfaces;
+using AuthService.Infraestructure.Data;
 using Microsoft.EntityFrameworkCore;
-using VideoProcessorX.Domain.Entities;
-using VideoProcessorX.Domain.Interfaces;
 
 namespace AuthService.Infraestructure.Persistence
 {

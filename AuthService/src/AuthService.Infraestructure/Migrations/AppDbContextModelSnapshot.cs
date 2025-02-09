@@ -21,7 +21,7 @@ namespace AuthService.Infraestructure.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
-            modelBuilder.Entity("VideoProcessorX.Domain.Entities.User", b =>
+            modelBuilder.Entity("AuthService.Domain.Entities.User", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()

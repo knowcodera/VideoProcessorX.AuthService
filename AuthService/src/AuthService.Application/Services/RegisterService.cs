@@ -1,7 +1,6 @@
 ﻿using AuthService.Application.Common;
+using AuthService.Domain.Entities;
 using AuthService.Domain.Interfaces;
-using VideoProcessorX.Domain.Entities;
-using VideoProcessorX.Domain.Interfaces;
 
 namespace AuthService.Application.Services
 {
