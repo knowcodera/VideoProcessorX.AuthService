@@ -1,4 +1,4 @@
-# VideoProcessorX.AuthService
+# AuthService
 
 ## 📌 Visão Geral
 O **VideoProcessorX.AuthService** é um serviço de autenticação robusto para o processamento de vídeos, desenvolvido com **.NET 8**, utilizando **JWT para autenticação**, **Entity Framework Core para persistência de dados**, e **RabbitMQ para eventos assíncronos**.
