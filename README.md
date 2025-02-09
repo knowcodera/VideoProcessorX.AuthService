@@ -1,7 +1,7 @@
 # AuthService
 
 ## 📌 Visão Geral
-O **VideoProcessorX.AuthService** é um serviço de autenticação robusto para o processamento de vídeos, desenvolvido com **.NET 8**, utilizando **JWT para autenticação**, **Entity Framework Core para persistência de dados**, e **RabbitMQ para eventos assíncronos**.
+O **AuthService** é um serviço de autenticação robusto para o processamento de vídeos, desenvolvido com **.NET 8**, utilizando **JWT para autenticação**, **Entity Framework Core para persistência de dados**, e **RabbitMQ para eventos assíncronos**.
 
 ## 🚀 Tecnologias Utilizadas
 - **.NET 8** - Plataforma de desenvolvimento
@@ -59,12 +59,6 @@ Certifique-se de ter instalado:
 - [Docker](https://www.docker.com/)
 - [RabbitMQ](https://www.rabbitmq.com/download.html) (caso queira rodar localmente)
 
-### 2️⃣ Clonar o Repositório
-```bash
-git clone https://github.com/seu-usuario/VideoProcessorX.AuthService.git
-cd VideoProcessorX.AuthService
-```
-
 ### 3️⃣ Configurar Variáveis de Ambiente
 Crie um arquivo **appsettings.json** no diretório `AuthService.Presentation` com o seguinte conteúdo:
 
@@ -75,8 +69,8 @@ Crie um arquivo **appsettings.json** no diretório `AuthService.Presentation` co
   },
   "Jwt": {
     "Key": "SuperSecretKeyForJwt",
-    "Issuer": "VideoProcessorX",
-    "Audience": "VideoProcessorXClients"
+    "Issuer": "Issuer",
+    "Audience": "Audience"
   },
   "RabbitMQ": {
     "HostName": "localhost",
@@ -92,12 +86,6 @@ Crie um arquivo **appsettings.json** no diretório `AuthService.Presentation` co
 ```bash
 dotnet build
 dotnet run --project src/AuthService.Presentation
-```
-
-#### 🔹 Com Docker
-```bash
-docker build -t videoprocessorx-authservice .
-docker run -p 8080:8080 -e "ASPNETCORE_ENVIRONMENT=Development" videoprocessorx-authservice
 ```
 
 #### 🔹 Com Docker-Compose (Banco de dados + RabbitMQ)
