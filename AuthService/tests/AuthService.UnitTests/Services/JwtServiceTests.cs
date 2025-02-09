@@ -1,6 +1,6 @@
 ﻿using AuthService.Application.Services;
+using AuthService.Domain.Entities;
 using Microsoft.Extensions.Configuration;
-using VideoProcessorX.Domain.Entities;
 
 namespace AuthService.UnitTests.Services
 {

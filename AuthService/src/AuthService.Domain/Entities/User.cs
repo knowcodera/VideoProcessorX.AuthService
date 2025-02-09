@@ -1,4 +1,4 @@
-﻿namespace VideoProcessorX.Domain.Entities
+﻿namespace AuthService.Domain.Entities
 {
     public class User
     {

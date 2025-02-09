@@ -1,4 +1,4 @@
-﻿using VideoProcessorX.Domain.Entities;
+﻿using AuthService.Domain.Entities;
 
 namespace AuthService.Domain.Interfaces
 {

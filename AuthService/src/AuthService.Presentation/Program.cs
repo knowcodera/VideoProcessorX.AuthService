@@ -1,3 +1,4 @@
+using System.Text;
 using AuthService.Application.Services;
 using AuthService.Domain.Interfaces;
 using AuthService.Infraestructure.Data;
@@ -6,8 +7,6 @@ using AuthService.Infraestructure.Persistence;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
-using System.Text;
-using VideoProcessorX.Domain.Interfaces;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -62,7 +61,7 @@ var app = builder.Build();
 using (var scope = app.Services.CreateScope())
 {
     var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
-    dbContext.Database.Migrate(); 
+    dbContext.Database.Migrate();
 }
 
 app.UseSwagger();

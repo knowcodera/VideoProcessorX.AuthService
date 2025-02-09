@@ -1,10 +1,10 @@
-﻿using AuthService.Domain.Interfaces;
-using Microsoft.Extensions.Configuration;
-using Microsoft.IdentityModel.Tokens;
-using System.IdentityModel.Tokens.Jwt;
+﻿using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
-using VideoProcessorX.Domain.Entities;
+using AuthService.Domain.Entities;
+using AuthService.Domain.Interfaces;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 
 namespace AuthService.Application.Services
 {

@@ -1,9 +1,9 @@
-﻿using AuthService.Domain.Interfaces;
+﻿using System.Text;
+using System.Text.Json;
+using AuthService.Domain.Interfaces;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using RabbitMQ.Client;
-using System.Text;
-using System.Text.Json;
 
 namespace AuthService.Infraestructure.Messaging
 {
@@ -22,7 +22,7 @@ namespace AuthService.Infraestructure.Messaging
         {
             var factory = new ConnectionFactory
             {
-                HostName = _configuration["RabbitMQ:HostName"], 
+                HostName = _configuration["RabbitMQ:HostName"],
                 UserName = _configuration["RabbitMQ:Username"],
                 Password = _configuration["RabbitMQ:Password"],
                 DispatchConsumersAsync = true,
@@ -47,7 +47,7 @@ namespace AuthService.Infraestructure.Messaging
 
             channel.BasicPublish(
                 exchange: "user_exchange",
-                routingKey: routingKey, 
+                routingKey: routingKey,
                 basicProperties: props,
                 body: body
             );
