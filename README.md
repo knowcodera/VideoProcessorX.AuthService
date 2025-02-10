@@ -101,6 +101,17 @@ docker-compose up -d
 | POST   | `/api/auth/login`    | Gera um token JWT             
 | GET    | `/api/users`         | Lista usuários (futuro)         
 
+## 🤖 **Cobertura de Testes**  
+
+| Pacote                                      | Cobertura de Linhas | Cobertura de Branches |
+|---------------------------------------------|---------------------|-----------------------|
+| `AuthService.Application`                  | 98.66%              | 100%                  |
+| `AuthService.Domain`                        | 50%                 | 100%                  |
+| `AuthService.Infrastructure`               | 46.35%              | 100%                  |
+| `AuthService.Presentation`                  | 18.75%              | 25%                   |
+
+
+
 
 ## 📜 Licença
 Este projeto está sob a licença **MIT**.
